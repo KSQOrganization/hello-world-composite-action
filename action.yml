@@ -5,7 +5,7 @@ inputs:
     description: 'Who to greet'
     required: true
     default: 'World'
-  INPUT_POKEMON_ID:  # id of input
+  pokemon-id:  # id of input
     description: 'pokename'
     required: true
     default: '1'
@@ -16,7 +16,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: api_url="https://pokeapi.co/api/v2/pokemon/"${{ inputs.INPUT_POKEMON_ID }};echo $api_url
+    - run: api_url="https://pokeapi.co/api/v2/pokemon/"${{ inputs.pokemon-id }};echo $api_url
       shell: bash
     - run: echo $api_url
       shell: bash  
