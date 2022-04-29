@@ -16,7 +16,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: api_url="https://pokeapi.co/api/v2/pokemon/"${{ INPUT_POKEMON_ID }};echo $api_url
+    - run: api_url="https://pokeapi.co/api/v2/pokemon/"${{ inputs.INPUT_POKEMON_ID }};echo $api_url
       shell: bash
     - run: pokemon_name=$(curl "${api_url}" | jq ".name");echo $pokemon_name
       shell: bash
