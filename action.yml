@@ -18,9 +18,7 @@ runs:
   steps:
     - run: api_url="https://pokeapi.co/api/v2/pokemon/"${{ inputs.pokemon-id }};echo $api_url
       shell: bash
-    - run: echo $api_url
-      shell: bash  
-    - run: pokemon_name=$(curl "${api_url}" | jq ".name");echo $pokemon_name
+    - run: pokemon_name=$(curl "https://pokeapi.co/api/v2/pokemon/"${{ inputs.pokemon-id }} | jq ".name");echo $pokemon_name
       shell: bash
     - run: echo Hello ${{ inputs.who-to-greet }}.
       shell: bash
